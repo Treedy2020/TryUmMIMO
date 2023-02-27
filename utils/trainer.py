@@ -18,7 +18,7 @@ class Trainer:
         lr_scheduler,
         checkpoint_path= './res/checkpoint/',
         loss_path='./res/loss/',
-        check_frequence=5,
+        check_frequence=0,
         training_step=1,
         valid_step=1,
         
@@ -56,8 +56,8 @@ class Trainer:
             self.lr_scheduler.step()
             if self.check_frequence and not (e + 1)%self.check_frequence:
                 self.getCheckpoint()
-        # self.getCheckpoint()
-        # self.saveLoss()
+        self.getCheckpoint()
+        self.saveLoss()
         
     
     def train_epoch(self):
