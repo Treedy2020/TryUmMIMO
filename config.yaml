@@ -1,0 +1,14 @@
+Nt: 16
+Nr: 16
+c: 5
+c_sub: 512
+number: 100 
+max_value: 0.001
+data_root: "./data/ummimo.mat"
+input_dim: 256
+batch_size: 1
+compress_ratio: 64
+epoch: 100
+batch_size: 2
+loss_path: "./res/loss/"
+checkpoint_path: "./res/checkpoint/"
