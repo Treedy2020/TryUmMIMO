@@ -16,7 +16,8 @@ class Trainer:
         criterion,
         optimizer,
         lr_scheduler,
-        checkpoint_path= './res/checkpoint/',
+        res_root='./res',
+        checkpoint_path='./res/checkpoint/',
         loss_path='./res/loss/',
         check_frequence=0,
         training_step=1,
@@ -40,6 +41,7 @@ class Trainer:
             'train_mse':[],
             'val_mse':[],
         }
+        self.res_root = res_root
         self.loss_path = loss_path
     
     def train(self):
@@ -56,8 +58,11 @@ class Trainer:
             self.lr_scheduler.step()
             if self.check_frequence and not (e + 1)%self.check_frequence:
                 self.getCheckpoint()
-        self.getCheckpoint()
-        self.saveLoss()
+                
+        if not os.path.exists(self.res_root):
+            os.mkdir(self.res_root)
+        # self.getCheckpoint()
+        # self.saveLoss()
         
     
     def train_epoch(self):
